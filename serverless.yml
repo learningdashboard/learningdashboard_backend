@@ -15,18 +15,6 @@ functions:
     handler: resources.handler
     events:
       - http:
-          path: 
+          path: resources
           method: get
-          cors: true
-      - http:
-          path: 
-          method: post
-          cors: true    
-      - http:
-          path: 
-          method: delete
-          cors: true
-      - http: 
-          path: 
-          method: put
           cors: true
