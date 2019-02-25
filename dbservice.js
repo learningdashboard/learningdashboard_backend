@@ -7,7 +7,7 @@ function getDatabaseConnection() {
         password: process.env.RDS_PASSWORD,
         database: process.env.RDS_DATABASE 
     });
-}
+};
 
 function sendQuery(query, params) {
     const connection = getDatabaseConnection();
@@ -23,15 +23,14 @@ function sendQuery(query, params) {
             }
         });
     });
-}
+};
 
 function getResources(){
     const query = "SELECT * FROM learning_resources";
     return sendQuery(query);
-}
-
+};
 
 
 module.exports = {
     getResources
-}
+};

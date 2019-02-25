@@ -19,6 +19,7 @@
   "homepage": "https://github.com/learningdashboard/learningdashboard_backend#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "mysql": "^2.16.0",
     "serverless-http": "^1.9.1"
   }
 }

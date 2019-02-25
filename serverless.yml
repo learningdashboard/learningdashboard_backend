@@ -1,4 +1,4 @@
-service: dashboard-service 
+service: resources-service 
 
 provider:
   name: aws
