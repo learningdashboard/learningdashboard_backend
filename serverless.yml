@@ -18,3 +18,11 @@ functions:
           path: resources
           method: get
           cors: true
+      - http:
+          path: resources
+          method: post
+          cors: true
+      - http:
+          path: resources/{resourceId}
+          method: post
+          cors: true      

@@ -1,5 +1,24 @@
 const mysql = require("mysql");
 
+const dummyTagList = [
+    "JavaScript",
+    "Conditionals",
+    "Axios",
+    "HTML",
+    "AWS",
+    "Arrays",
+    "React",
+    "Bootstrap",
+    "mySQL",
+    "Tutorials",
+    "Loops",
+    "JS_Express",
+    "CSS",
+    "Testing_TDD",
+    "Professional_Development"
+  ]
+  
+
 function getDatabaseConnection() {
     return mysql.createConnection({
         host: process.env.RDS_HOST,
@@ -31,6 +50,42 @@ function getResources(){
 };
 
 
+function addResource(title, url, description, userName, dateAdded) {
+    const data  =  {
+    title: title,
+    url: url,     
+    description: description, 	
+    userName: userName,
+    dateAdded: dateAdded
+    };
+
+    const query = "INSERT INTO learning_resources SET ?"
+    const params = data
+    return sendQuery(query, params);
+}
+
+
+function applyTags(resourceId, resourceTags) {
+    let params = []
+
+    for (let item of dummyTagList) {
+        if (resourceTags.includes(item)) {
+            params.push(["true"])
+        } else {
+            params.push(["false"])
+        }
+    };
+
+    params.push([resourceId]);
+
+    const query = 'UPDATE resource_tags SET Javascript = ?, Conditionals = ?, Axios = ?, HTML = ?, AWS = ?, Arrays = ?, React = ?, Bootstrap = ?, mySQL = ?, Tutorials = ?, Loops = ?, JS_Express = ?, CSS = ?, Testing_TDD = ?, Professional_Development = ? WHERE resourceId = ?'
+
+    return sendQuery(query, params);
+    
+}
+
 module.exports = {
-    getResources
+    getResources,
+    addResource,
+    applyTags
 };
