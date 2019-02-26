@@ -6,10 +6,10 @@
 #Delete from taggings database
 Use learning_dashboard;
 DELETE FROM taggings
-WHERE resourceId=1;
+WHERE resourceId=3;
 
 
 #Delete from resource database
 Use learning_dashboard;
 DELETE FROM resources
-WHERE resourceId=1;
+WHERE resourceId=3;

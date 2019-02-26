@@ -18,5 +18,10 @@ USE learning_dashboard;
 SELECT tagId From taggings
 WHERE resourceId = 2;
 
-
+#Returns resources with the tagNames concatentated as a array
+USE learning_dashboard;
+SELECT resources.*, GROUP_CONCAT(tags.tagName) AS ResourceTags FROM
+resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
+LEFT JOIN tags ON tags.tagId=taggings.tagId
+GROUP BY resources.resourceId
 

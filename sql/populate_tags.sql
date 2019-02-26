@@ -1,4 +1,4 @@
-#INSERT ORIGINAL TAGS INTO tags TABLE
+/*INSERT ORIGINAL TAGS INTO tags TABLE*/
 INSERT INTO learning_dashboard.tags (tagName) values ('JavaScript');
 INSERT INTO learning_dashboard.tags (tagName) values ("Conditionals");
 INSERT INTO learning_dashboard.tags (tagName) values ("Axios");

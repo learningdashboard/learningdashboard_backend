@@ -37,16 +37,41 @@ function sendQuery(query, params) {
                 return reject(error);
             } 
             else {
-                connection.end();
-                return resolve(results);
+                connection.end(function(err){
+                    return resolve(results);
+                });
+                ;
             }
         });
     });
 };
 
 function getResources(){
-    const query = "SELECT * FROM learning_resources";
-    return sendQuery(query);
+    const query = "SELECT * FROM resources";
+    //return a promise to get resources from the resources table
+    let returnedResources=[]
+    return sendQuery(query)
+    //then take those resources and get the tagNames for each one and put into an array
+    .then(function(resources){
+        returnedResources = resources;
+        let tagpromises =[]
+        for(i=0;i<resources.length;i++){
+            let tagsQuery = "SELECT tagId from taggings WHERE resourceId=?";
+            let params = [resources[i].resourceId]
+            tagpromises.push(sendQuery(tagsQuery, params))
+        }
+        return Promise.all(tagpromises)
+    })
+    .then(function(tags){
+        let resourcesWithTags = returnedResources;
+        for(i=0; i<resourcesWithTags.length;i++){
+            resourcesWithTags[i].resourceTags = []
+            for(j=0; j<tags[i].length;j++){
+                resourcesWithTags[i].resourceTags.push(tags[i][j].tagId)
+            }
+        }
+        return resourcesWithTags;
+    })
 };
 
 
