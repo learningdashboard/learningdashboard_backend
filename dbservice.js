@@ -47,30 +47,14 @@ function sendQuery(query, params) {
 };
 
 function getResources(){
-    const query = "SELECT * FROM resources";
-    //return a promise to get resources from the resources table
-    let returnedResources=[]
+    const query = "SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId LEFT JOIN tags ON tags.tagId=taggings.tagId GROUP BY resources.resourceId"
     return sendQuery(query)
-    //then take those resources and get the tagNames for each one and put into an array
-    .then(function(resources){
-        returnedResources = resources;
-        let tagpromises =[]
-        for(i=0;i<resources.length;i++){
-            let tagsQuery = "SELECT tagId from taggings WHERE resourceId=?";
-            let params = [resources[i].resourceId]
-            tagpromises.push(sendQuery(tagsQuery, params))
+    .then(function(results){
+        let resources = results;
+        for(i=0; i<resources.length; i++){
+            resources[i].resourceTags = resources[i].resourceTags.split(',')
         }
-        return Promise.all(tagpromises)
-    })
-    .then(function(tags){
-        let resourcesWithTags = returnedResources;
-        for(i=0; i<resourcesWithTags.length;i++){
-            resourcesWithTags[i].resourceTags = []
-            for(j=0; j<tags[i].length;j++){
-                resourcesWithTags[i].resourceTags.push(tags[i][j].tagId)
-            }
-        }
-        return resourcesWithTags;
+        return resources
     })
 };
 
