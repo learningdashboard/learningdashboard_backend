@@ -7,16 +7,16 @@
 # https://github.com/mysqljs/mysql#getting-the-id-of-an-inserted-row
 USE learning_dashboard;
 INSERT INTO resources (title, description, url, userName) 
-VALUES ("JavaScript Tutorial", "This is a basic JavaScript Tutorial", "test@test.com", "Nicola");
+VALUES ("Axios Tutorial", "This is a basic Axios Tutorial", "test2@test.com", "Nicola");
 
 
 #STEP TWO: LOOK UP THE TAG IDs for the Tagnames associated with the resource 
 #when we run this query from backend code we will get the list of tag_ids we want to give to the resource
 USE learning_dashboard;
-SELECT tagId from tags WHERE tagName IN ('Javascript', 'Loops');
+SELECT tagId from tags WHERE tagName IN ('Axios');
 
 #STEP THREE: PUT ENTRIES INTO taggings TABLE FOR EACH resourceId(from step 1) and tagId(from Step 2)
 USE learning_dashboard;
 INSERT INTO taggings (resourceId, tagId) 
-VALUES (2, 1),(2,12);
+VALUES (4, 4);
 

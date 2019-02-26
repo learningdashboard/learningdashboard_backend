@@ -5,10 +5,10 @@ provider:
   runtime: nodejs8.10
   region: eu-west-2
   environment: 
-    RDS_HOST: ${opt:RDS_HOST}
-    RDS_USER: ${opt:RDS_USER}
-    RDS_PASSWORD: ${opt:RDS_PASSWORD}
-    RDS_DATABASE: ${opt:RDS_DATABASE}
+    RDS_HOST: ${file(../learning_dashboard_backend_config/serverless_env.json):RDS_HOST}
+    RDS_USER: ${file(../learning_dashboard_backend_config/serverless_env.json):RDS_USER}
+    RDS_PASSWORD: ${file(../learning_dashboard_backend_config/serverless_env.json):RDS_PASSWORD}
+    RDS_DATABASE: ${file(../learning_dashboard_backend_config/serverless_env.json):RDS_DATABASE}
 
 functions:
   resources:

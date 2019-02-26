@@ -37,16 +37,25 @@ function sendQuery(query, params) {
                 return reject(error);
             } 
             else {
-                connection.end();
-                return resolve(results);
+                connection.end(function(err){
+                    return resolve(results);
+                });
+                ;
             }
         });
     });
 };
 
 function getResources(){
-    const query = "SELECT * FROM learning_resources";
-    return sendQuery(query);
+    const query = "SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId LEFT JOIN tags ON tags.tagId=taggings.tagId GROUP BY resources.resourceId"
+    return sendQuery(query)
+    .then(function(results){
+        let resources = results;
+        for(i=0; i<resources.length; i++){
+            resources[i].resourceTags = resources[i].resourceTags.split(',')
+        }
+        return resources
+    })
 };
 
 
