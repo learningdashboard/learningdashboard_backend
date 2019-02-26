@@ -19,10 +19,18 @@ functions:
           method: get
           cors: true
       - http:
-          path: resources
-          method: post
+          path: resources/top
+          method: get
+          cors: true
+      -http:
+          path: resources/search
+          method: get
           cors: true
       - http:
           path: resources/{resourceId}
+          method: delete
+          cors: true
+      - http:
+          path: resources/
           method: post
           cors: true      
