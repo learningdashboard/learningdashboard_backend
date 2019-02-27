@@ -20,8 +20,34 @@ WHERE resourceId = 2;
 
 #Returns resources with the tagNames concatentated as a array
 USE learning_dashboard;
-SELECT resources.*, GROUP_CONCAT(tags.tagName) AS ResourceTags FROM
+SELECT resources.*, tags.tagName, GROUP_CONCAT(tags.tagName) AS ResourceTags FROM
 resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
 LEFT JOIN tags ON tags.tagId=taggings.tagId
-GROUP BY resources.resourceId
+GROUP BY resources.resourceId;
+
+SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM 
+                resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
+                LEFT JOIN tags ON tags.tagId=taggings.tagId 
+                WHERE tags.tagName IN ("JavaScript")
+                GROUP BY resources.resourceId
+
+
+
+SELECT t2.* FROM
+(SELECT resources.resourceId FROM 
+resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
+LEFT JOIN tags ON tags.tagId=taggings.tagId 
+WHERE tags.tagName IN ("JavaScript")) t1
+LEFT JOIN
+(SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM
+resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
+LEFT JOIN tags ON tags.tagId=taggings.tagId
+GROUP BY resources.resourceId) t2
+ON t1.resourceId=t2.resourceId
+
+SELECT * FROM
+resources LEFT JOIN taggings
+ON resources.resourceId = taggings.resourceId
+
+
 
