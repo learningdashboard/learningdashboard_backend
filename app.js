@@ -54,28 +54,29 @@ app.get('/resources', function (request, response) {
 
 
   //Post a new resource -- JADE TO WRITE
-  app.post('/resources', function (request, response) {
+  app.post('/resources', async function (request, response) {
     const title = request.body.title;
     const url = request.body.url;
     const description = request.body.description;
     const userName = request.body.userName;
-    const dateAdded = request.body.dateAdded;
-    const resourceId = request.body.resourceId;
     const resourceTags = request.body.resourceTags;
-
   
-    dbService.addResource(title, url, description, userName, dateAdded)
-    .then(function(results){
-      response.json(results);
-    })
-    .then(dbService.applyTags(resourceId, resourceTags))
-    .then(function(results){
-        response.json(results);
-      })
-    .catch(function(error){
+
+    try {
+      const addBodyOfResource = await dbService.addResource(title, url, description, userName)
+      const resourceId = addBodyOfResource.insertId;
+      const getTagIds = await dbService.getResourceTagIds(resourceTags); 
+
+      for(let item of getTagIds) {
+        const thisTagId = item.tagId
+        await dbService.applyTagsToResource(resourceId, thisTagId)
+      }
+    
+      response.json(getTagIds);
+    } catch(error){
       response.status(500);
       response.json(error);
-    });
+    };
   })
 
   

@@ -1,23 +1,5 @@
 const mysql = require("mysql");
 
-const dummyTagList = [
-    "JavaScript",
-    "Conditionals",
-    "Axios",
-    "HTML",
-    "AWS",
-    "Arrays",
-    "React",
-    "Bootstrap",
-    "mySQL",
-    "Tutorials",
-    "Loops",
-    "JS_Express",
-    "CSS",
-    "Testing_TDD",
-    "Professional_Development"
-  ]
-  
 
 function getDatabaseConnection() {
     return mysql.createConnection({
@@ -109,17 +91,28 @@ function searchByTags(arrayOfTags){
 
 
 //JADE TO IMPLEMENT 3 steps to storing a resource
-function addResource(title, url, description, userName, dateAdded) {
+function addResource(title, url, description, userName) {
     const data  =  {
     title: title,
     url: url,     
     description: description, 	
-    userName: userName,
-    dateAdded: dateAdded
+    userName: userName
     };
 
-    const query = "INSERT INTO learning_resources SET ?"
-    const params = data
+    const query = `INSERT INTO learning_resources SET ?`;
+    const params = data;
+    return sendQuery(query, params);
+}
+
+function getResourceTagIds(resourceTags) {
+    const query = `SELECT tagId from tags WHERE tagName IN (?)`;
+    const params = [resourceTags];
+    return sendQuery(query, params);
+}
+
+function applyTagsToResource(resourceId, tagId){
+    const query = `INSERT INTO taggings (resourceId, tagId) VALUES (?, ?);`;
+    const params = [resourceId, tagId];
     return sendQuery(query, params);
 }
 
@@ -136,5 +129,8 @@ module.exports = {
     addResource,
     getResourcesTop,
     searchByTags,
-    deleteResource
+    deleteResource,
+    getResourceTagIds,
+    applyTagsToResource
+
 };
