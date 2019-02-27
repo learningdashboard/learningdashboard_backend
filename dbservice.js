@@ -36,11 +36,18 @@ function getResources(){
                 ORDER BY resources.dateAdded DESC`
     return sendQuery(query)
     .then(function(results){
+        console.log(results)
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
-        for(i=0; i<resources.length; i++){
-            resources[i].resourceTags = resources[i].resourceTags.split(',')
+        for(i=0; i<resources.length-1; i++){
+            console.log("inside loop" + JSON.stringify(resources[i]))
+            //if there are no tags don't try to split them
+            if(resources[i].resourceTags != null){
+                resources[i].resourceTags = resources[i].resourceTags.split(',')
+            } 
         }
+
+        console.log(JSON.stringify(resources))
         return resources
     })
 };
@@ -51,8 +58,21 @@ function getResourcesTop() {
                 LEFT JOIN tags ON tags.tagId=taggings.tagId 
                 GROUP BY resources.resourceId
                 ORDER BY resources.dateAdded DESC
-                LIMIT 1`
+                LIMIT 5`
     return sendQuery(query)
+<<<<<<< HEAD
+    .then(function(results){
+        //resourceTags field is sent back as comma seperated list ...so pass to array
+        let resources = results;
+        for(i=0; i<resources.length; i++){
+            //if there are no tags don't try to split them into an array
+            if(resources[i].resourceTags != null){
+                resources[i].resourceTags = resources[i].resourceTags.split(',')
+            }
+        }
+        return resources
+    })
+=======
         .then(function (results) {
             //resourceTags field is sent back as comma seperated list ...so pass to array
             let resources = results;
@@ -61,6 +81,7 @@ function getResourcesTop() {
             }
             return resources
         })
+>>>>>>> master
 }
 
 function searchByTags(arrayOfTags) {
@@ -79,6 +100,19 @@ function searchByTags(arrayOfTags) {
                     ORDER BY t2.dateAdded DESC`
     const params = arrayOfTags
     return sendQuery(query, [params])
+<<<<<<< HEAD
+    .then(function(results){
+        //resourceTags field is sent back as comma seperated list ...so pass to array
+        let resources = results;
+        for(i=0; i<resources.length; i++){
+            //if there are no tags don't try to split them into an array
+            if(resources[i].resourceTags != null){
+                resources[i].resourceTags = resources[i].resourceTags.split(',')
+            }
+        }
+        return resources
+    })
+=======
         .then(function (results) {
             //resourceTags field is sent back as comma seperated list ...so pass to array
             let resources = results;
@@ -87,6 +121,7 @@ function searchByTags(arrayOfTags) {
             }
             return resources
         })
+>>>>>>> master
 }
 
 
