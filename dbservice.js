@@ -50,7 +50,8 @@ function getResources(){
     const query = `SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM 
                 resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
                 LEFT JOIN tags ON tags.tagId=taggings.tagId 
-                GROUP BY resources.resourceId`
+                GROUP BY resources.resourceId
+                ORDER BY resources.dateAdded DESC`
     return sendQuery(query)
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
@@ -82,13 +83,20 @@ function getResourcesTop(){
 
 function searchByTags(arrayOfTags){
     console.log(arrayOfTags)
-    const query = `SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM 
-                resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
-                LEFT JOIN tags ON tags.tagId=taggings.tagId 
-                WHERE tags.tagName IN (?)
-                GROUP BY resources.resourceId`
+    const query = `SELECT t2.* FROM
+                    (SELECT resources.resourceId FROM 
+                    resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
+                    LEFT JOIN tags ON tags.tagId=taggings.tagId 
+                    WHERE tags.tagName IN (?)) t1
+                    LEFT JOIN
+                    (SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM
+                    resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
+                    LEFT JOIN tags ON tags.tagId=taggings.tagId
+                    GROUP BY resources.resourceId) t2
+                    ON t1.resourceId=t2.resourceId
+                    ORDER BY t2.dateAdded DESC`
     const params = arrayOfTags
-    return sendQuery(query, params)
+    return sendQuery(query, [params])
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
