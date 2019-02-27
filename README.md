@@ -1,4 +1,4 @@
-#Learning Dashboard Resource API
+# Learning Dashboard Resource API
 
 ### GET /resources
 Returns an array of Resource objects
