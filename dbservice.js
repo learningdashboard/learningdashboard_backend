@@ -40,8 +40,7 @@ function getResources(){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
         for(i=0; i<resources.length-1; i++){
-            console.log("inside loop" + JSON.stringify(resources[i]))
-            //if there are no tags don't try to split them
+            //if there are no tags don't try to split them into an array
             if(resources[i].resourceTags != null){
                 resources[i].resourceTags = resources[i].resourceTags.split(',')
             } 
@@ -60,7 +59,7 @@ function getResourcesTop() {
                 ORDER BY resources.dateAdded DESC
                 LIMIT 5`
     return sendQuery(query)
-<<<<<<< HEAD
+
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -72,16 +71,6 @@ function getResourcesTop() {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
 }
 
 function searchByTags(arrayOfTags) {
@@ -100,7 +89,7 @@ function searchByTags(arrayOfTags) {
                     ORDER BY t2.dateAdded DESC`
     const params = arrayOfTags
     return sendQuery(query, [params])
-<<<<<<< HEAD
+
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -112,16 +101,6 @@ function searchByTags(arrayOfTags) {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
 }
 
 //3 steps to storing a resource
