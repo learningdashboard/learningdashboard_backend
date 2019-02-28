@@ -60,7 +60,6 @@ function getResourcesTop() {
                 ORDER BY resources.dateAdded DESC
                 LIMIT 5`
     return sendQuery(query)
-<<<<<<< HEAD
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -72,20 +71,21 @@ function getResourcesTop() {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
+}
+
+function getTags(){
+    const query = `SELECT tagName FROM tags`
+    return sendQuery(query)
+    .then(function(tags){
+        let tagsArray=[]
+        for(i=0;i<tags.length;i++){
+            tagsArray.push(tags[i].tagName)
+        }
+        return tagsArray;
+    })
 }
 
 function searchByTags(arrayOfTags) {
-    console.log(arrayOfTags)
     const query = `SELECT t2.* FROM
                     (SELECT resources.resourceId FROM 
                     resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
@@ -100,7 +100,6 @@ function searchByTags(arrayOfTags) {
                     ORDER BY t2.dateAdded DESC`
     const params = arrayOfTags
     return sendQuery(query, [params])
-<<<<<<< HEAD
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -112,16 +111,6 @@ function searchByTags(arrayOfTags) {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
 }
 
 
@@ -163,6 +152,7 @@ module.exports = {
     searchByTags,
     deleteResource,
     getResourceTagIds,
-    applyTagsToResource
+    applyTagsToResource,
+    getTags
 
 };

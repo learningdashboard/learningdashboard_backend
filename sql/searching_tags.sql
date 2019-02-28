@@ -49,5 +49,8 @@ SELECT * FROM
 resources LEFT JOIN taggings
 ON resources.resourceId = taggings.resourceId
 
+USE learning_dashboard;
+SELECT tagName FROM tags;
+
 
 

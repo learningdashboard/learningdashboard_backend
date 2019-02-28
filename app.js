@@ -37,6 +37,18 @@ app.get('/resources/top', function (request, response) {
     });
 })
 
+app.get('/tags', function(request, response){
+  dbService.getTags()
+  .then(function (results) {
+    response.json(results);
+  })
+  .catch(function (error) {
+    //something went wrong
+    response.status(500);
+    response.json(error);
+  });
+})
+
 //returns search results
 app.get('/resources/search', function (request, response) {
   let queryparams = request.query.tags
