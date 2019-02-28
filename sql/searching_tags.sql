@@ -32,12 +32,12 @@ SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM
                 GROUP BY resources.resourceId
 
 
-
+Use learning_dashboard;
 SELECT t2.* FROM
-(SELECT resources.resourceId FROM 
+(SELECT DISTINCT resources.resourceId FROM 
 resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
 LEFT JOIN tags ON tags.tagId=taggings.tagId 
-WHERE tags.tagName IN ("JavaScript")) t1
+WHERE tags.tagName IN ("JavaScript","React")) t1
 LEFT JOIN
 (SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM
 resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
