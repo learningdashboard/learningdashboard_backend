@@ -40,8 +40,7 @@ function getResources(){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
         for(i=0; i<resources.length-1; i++){
-            console.log("inside loop" + JSON.stringify(resources[i]))
-            //if there are no tags don't try to split them
+            //if there are no tags don't try to split them into an array
             if(resources[i].resourceTags != null){
                 resources[i].resourceTags = resources[i].resourceTags.split(',')
             } 
@@ -113,8 +112,7 @@ function searchByTags(arrayOfTags) {
     })
 }
 
-
-//JADE TO IMPLEMENT 3 steps to storing a resource
+//3 steps to storing a resource
 function addResource(data) {
     const query = `INSERT INTO resources SET ?`;
     const params = data;
@@ -133,12 +131,7 @@ function applyTagsToResource(resourceId, tagId) {
     return sendQuery(query, params);
 }
 
-//JADE TO WRITE
-//Delete a resource from taggings table and THEN from resources table....idealliy would do this in a single sql
-//procedure but for now if you do it in this order there is no risk that it gets deleted from resources table and then 
-//someone picks it up in a search before its deleted from taggings table
-
-//J - you knows, I got this single query thing, guuuurl!! Hah
+//Delete resource info and tags (from both 'resources' and 'taggings' tables in db)
 function deleteResource(resourceId) {
     const query = `DELETE t, r FROM taggings as t RIGHT JOIN resources as r ON t.resourceId = r.resourceId WHERE r.resourceId = ?;`;
     const params = resourceId;
