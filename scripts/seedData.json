@@ -1,317 +1,296 @@
-[
-{
+{"data":
+[{
 "title":"5 Steps to Building a Minimum Viable Product with Story Mapping",
 "description":"A useful article on designing a minimal viable product",
 "url":"https://www.cayenneapps.com/blog/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/",
 "userName":"Nicola",
-"resourceTags":"App Design"
+"resourceTags":["App Design"]
 },
 {
 "title":"Asynchronous JavaScript",
 "description":"A useful article on designing a minimal viable product",
 "url":"https://www.codecademy.com/learn/asynchronous-javascript",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"What is an API? In English, please.",
 "description":"Discussion of APIs",
 "url":"https://medium.freecodecamp.org/what-is-an-api-in-english-please-b880a3214a82",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"Overcoming Impostor Syndrome",
 "description":"Short article on imposter syndrome",
 "url":"https://medium.com/counter-intuition/overcoming-impostor-syndrome-bdae04e46ec5",
 "userName":"Nicola",
-"resourceTags":"Professional Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"Thinking Abstractly: Why Programmers Don’t Write Binary Code",
 "description":"A good article on problem solving and",
 "url":"https://spin.atomicobject.com/2012/12/07/thinking-abstractly/",
 "userName":"Nicola",
-"resourceTags":"Problem Solving"
+"resourceTags":["Problem Solving"]
 },
 {
 "title":"Sue Black on women in tech",
 "description":"Sue Black tells Jim Al-Khalili how she became a software engineer.",
 "url":"https://www.bbc.co.uk/sounds/play/m0002gq4",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"Learn to Build Serverless Apps",
 "description":"Guide to Serverless Framework",
 "url":"http://www.goingserverless.com/blog/using-environment-variables-with-the-serverless-framework",
 "userName":"Nicola",
-"resourceTags":"JavaScript, Serverless, AWS"
+"resourceTags":["JavaScript", "Serverless", "AWS"]
 },
 {
 "title":"My SQL Terminal",
 "description":"online IDE",
 "url":"https://www.tutorialspoint.com/mysql_terminal_online.php",
 "userName":"Nicola",
-"resourceTags":"SQL"
+"resourceTags":["SQL"]
 },
 {
 "title":"I’m lost, how do I learn to use the Cloud?",
 "description":"Guide to AWS",
 "url":"https://peadarcoyle.com/2019/01/12/im-lost-how-do-i-learn-to-use-the-cloud/",
 "userName":"Nicola",
-"resourceTags":"AWS"
+"resourceTags":["AWS"]
 },
 {
 "title":"Why The Heck Do I Need To Use Semi-Colons in Javascript",
 "description":"A warning on skipping the semicolons in JavaScript",
 "url":"https://code.likeagirl.io/why-the-heck-do-i-need-to-use-semi-colons-in-javascript-4f8712c82329",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"The React Handbook",
 "description":"ultimate guide to React",
 "url":"https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795",
 "userName":"Nicola",
-"resourceTags":"React, JavaScript"
+"resourceTags":["React", "JavaScript"]
 },
 {
 "title":"GitHub Free users now get unlimited private repositories",
 "description":"Article on getting fress private repositories in github",
 "url":"https://guce.oath.com/collectConsent?brandType=nonEu&.done=https%3A%2F%2Ftechcrunch.com%2F2019%2F01%2F07%2Fgithub-free-users-now-get-unlimited-private-repositories%2F%3Fguccounter%3D1&sessionId=3_cc-session_e8643095-9ab4-4aa2-ab09-f3465a406957&lang=&inline=false",
 "userName":"Nicola",
-"resourceTags":"Git"
+"resourceTags":["Git"]
 },
 {
 "title":"Why it's important to give your HTML button a type",
 "description":"Guide to buttons",
 "url":"https://dev.to/claireparker/why-its-important-to-give-your-html-button-a-type-58k9",
 "userName":"Nicola",
-"resourceTags":"HTML, CSS"
+"resourceTags":["HTML", "CSS"]
 },
 {
 "title":"How to Structure Your React Project",
 "description":"Interesting ideas on how to structure your React project files",
 "url":"https://daveceddia.com/react-project-structure/",
 "userName":"Nicola",
-"resourceTags":""
+"resourceTags":["React"]
 },
 {
 "title":"Why You Should Make Time for Self-Reflection (Even If You Hate Doing It)",
 "description":"Learn to reflect",
 "url":"https://hbr.org/2017/03/why-you-should-make-time-for-self-reflection-even-if-you-hate-doing-it",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"The power of rest and reflection: Daniel Rubin at TEDxIDC",
 "description":"Video on self reflection",
 "url":"https://www.youtube.com/watch?v=L2GjmmbvfYY",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"The power of reflection at work, by HEC Paris Prof. Giada Di Stefano",
 "description":"video on self reflection",
 "url":"https://www.youtube.com/watch?v=3tYsRVo8ZGg",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"Time to reflect – why does it matter in the workplace?",
 "description":"Personal reflection in the workplace",
 "url":"https://www.hrzone.com/perform/people/time-to-reflect-why-does-it-matter-in-the-workplace",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"Making Experience Count: The Role of Reflection in Individual Learning",
 "description":"Personal reflection in the workplace",
 "url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"How to add Fonts to a React Project",
 "description":"Adding fonts to a React project",
 "url":"https://scotch.io/@micwanyoike/how-to-add-fonts-to-a-react-project",
 "userName":"Nicola",
-"resourceTags":""
+"resourceTags":["React"]
 },
 {
 "title":"Styled Componenets",
 "description":"How to style components in React",
 "url":"https://peadarcoyle.com/2019/01/12/im-lost-how-do-i-learn-to-use-the-cloud/",
 "userName":"Nicola",
-"resourceTags":"React, CSS"
+"resourceTags":["React", "CSS"]
 },
 {
 "title":"Basic JavaScript: Comparison with the Strict Equality Operator",
 "description":"Interactive JavaScript tutorial",
 "url":"https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-javascript/comparison-with-the-strict-equality-operator/",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"Debugging tests in VS Code",
 "description":"setting up VS Code for debugging",
 "url":"https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests",
 "userName":"Nicola",
-"resourceTags":"VSCode, Testing"
+"resourceTags":["VS Code", "Testing/TDD"]
 },
 {
 "title":"GitHub Free users now get unlimited private repositories",
 "description":"Article on getting fress private repositories in github",
 "url":"https://guce.oath.com/collectConsent?brandType=nonEu&.done=https%3A%2F%2Ftechcrunch.com%2F2019%2F01%2F07%2Fgithub-free-users-now-get-unlimited-private-repositories%2F%3Fguccounter%3D1&sessionId=3_cc-session_e8643095-9ab4-4aa2-ab09-f3465a406957&lang=&inline=false",
 "userName":"Nicola",
-"resourceTags":"Github"
+"resourceTags":["Git"]
 },
 {
 "title":"Logic in Media Queries",
 "description":"media queries for responsive design",
 "url":"https://css-tricks.com/logic-in-media-queries/",
 "userName":"Nicola",
-"resourceTags":"CSS"
+"resourceTags":["CSS"]
 },
 {
 "title":"Bootstrap Grid System",
 "description":"Official bootstrap documentation",
 "url":"https://getbootstrap.com/docs/4.1/layout/grid/",
 "userName":"Nicola",
-"resourceTags":"Bootstrap, CSS, HTML"
+"resourceTags":["Bootstrap", "CSS", "HTML"]
 },
 {
 "title":"A Complete Guide to Flexbox",
 "description":"Detailed description of flexbox",
 "url":"https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
 "userName":"Nicola",
-"resourceTags":"Bootstrap, CSS"
+"resourceTags":["Bootstrap", "CSS"]
 },
 {
 "title":"10 Steps to Solving a Programming Problem",
 "description":"Tips on problem solving techniques",
 "url":"https://codeburst.io/10-steps-to-solving-a-programming-problem-8a32d1e96d74",
 "userName":"Nicola",
-"resourceTags":"Problem Solving"
+"resourceTags":["Problem Solving"]
 },
 {
 "title":"9 Ways to Remove Elements From A JavaScript Array - Plus How to Safely Clear JavaScript Arrays",
 "description":"Removing elements from arrays in JavaScript",
 "url":"https://love2dev.com/blog/javascript-remove-from-array/",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"Time to reflect – why does it matter in the workplace?",
 "description":"Personal reflection in the workplace",
 "url":"https://htmlcolorcodes.com",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"Colour Codes",
 "description":"A guide to Hex and RGB colour codes",
 "url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478",
 "userName":"Nicola",
-"resourceTags":"CSS, HTML"
+"resourceTags":["CSS", "HTML"]
 },
 {
 "title":"Hexadecimal Color Codes",
 "description":"hexidecimal colour codes",
 "url":"https://www.december.com/html/spec/colorhex.html",
 "userName":"Nicola",
-"resourceTags":"HTML, CSS"
+"resourceTags":["HTML", "CSS"]
 },
 {
 "title":"Hexidecimal Colour Codes",
 "description":"Another guide to hexidecimal colour codes",
 "url":"https://www.color-hex.com",
 "userName":"Nicola",
-"resourceTags":"HTML, CSS"
+"resourceTags":["HTML", "CSS"]
 },
 {
 "title":"CSS Reference",
 "description":"Full list of CSS properties",
 "url":"https://www.w3schools.com/cssref/",
 "userName":"Nicola",
-"resourceTags":"React, CSS"
+"resourceTags":["React", "CSS"]
 },
 {
 "title":"Is Simple Better?",
 "description":"A guide to Wireframing",
 "url":"https://mentormate.com/blog/low-fidelity-wireframes-vs-high-fidelity-wireframes/",
 "userName":"Nicola",
-"resourceTags":"App Design"
+"resourceTags":["App Design"]
 },
 {
 "title":"ONE SENTENCE WITH 7 MEANINGS UNLOCKS A MYSTERY OF HUMAN SPEECH",
 "description":"An article on verbal communication",
 "url":"https://www.wired.com/story/one-sentence-with-7-meanings-unlocks-a-mystery-of-human-speech/",
 "userName":"Nicola",
-"resourceTags":"Personal Development"
+"resourceTags":["Professional Development"]
 },
 {
 "title":"You Don't Know JS: Up & Going",
 "description":"Comprehensive Javascript guide",
 "url":"https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going",
 "userName":"Nicola",
-"resourceTags":"JavaScript"
+"resourceTags":["JavaScript"]
 },
 {
 "title":"UNIX / LINUX CHEAT SHEET",
 "description":"Terminal Commands",
 "url":"http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/",
 "userName":"Nicola",
-"resourceTags":"Other"
+"resourceTags":["Other"]
 },
 {
 "title":"Git cheat sheet",
 "description":"Handy git command lookup",
 "url":"https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet",
 "userName":"Nicola",
-"resourceTags":"Git"
+"resourceTags":["Git"]
 },
 {
 "title":"ASemantic Versioning 2.0.0",
 "description":"Article on Semantic Versioning",
 "url":"https://semver.org",
 "userName":"Nicola",
-"resourceTags":"Other"
+"resourceTags":["Other"]
 },
 {
 "title":"Learn Git Branching",
 "description":"An interactive tutorial on git branching",
 "url":"https://learngitbranching.js.org",
 "userName":"Nicola",
-"resourceTags":"Problem Solving"
+"resourceTags":["Problem Solving"]
 },
 {
 "title":"What is GitHub?",
 "description":"A fun video explaining Github with Tractors",
 "url":"https://www.youtube.com/watch?v=w3jLJU7DT5E&amp=&t=156s",
 "userName":"Nicola",
-"resourceTags":"Git"
-},
-{
-"title":"Time to reflect – why does it matter in the workplace?",
-"description":"Personal reflection in the workplace",
-"url":"https://htmlcolorcodes.com",
-"userName":"Nicola",
-"resourceTags":"Personal Development"
-},
-{
-"title":"Colour Codes",
-"description":"A guide to Hex and RGB colour codes",
-"url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478",
-"userName":"Nicola",
-"resourceTags":"CSS, HTML"
-},
-{
-"title":"Hexadecimal Color Codes",
-"description":"hexidecimal colour codes",
-"url":"https://www.december.com/html/spec/colorhex.html",
-"userName":"Nicola",
-"resourceTags":""
+"resourceTags":["Git"]
+}]
 }
-]
