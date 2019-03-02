@@ -133,7 +133,6 @@ app.put('/resources/:resourceId', async function (request, response) {
   
       response.json(results);
     } catch (error) {
-      response.status(500);
       response.json(error);
     };
 
