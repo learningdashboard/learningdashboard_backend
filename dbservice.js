@@ -40,8 +40,7 @@ function getResources(){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
         for(i=0; i<resources.length-1; i++){
-            console.log("inside loop" + JSON.stringify(resources[i]))
-            //if there are no tags don't try to split them
+            //if there are no tags don't try to split them into an array
             if(resources[i].resourceTags != null){
                 resources[i].resourceTags = resources[i].resourceTags.split(',')
             } 
@@ -60,7 +59,6 @@ function getResourcesTop() {
                 ORDER BY resources.dateAdded DESC
                 LIMIT 5`
     return sendQuery(query)
-<<<<<<< HEAD
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -72,22 +70,23 @@ function getResourcesTop() {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
+}
+
+function getTags(){
+    const query = `SELECT tagName FROM tags`
+    return sendQuery(query)
+    .then(function(tags){
+        let tagsArray=[]
+        for(i=0;i<tags.length;i++){
+            tagsArray.push(tags[i].tagName)
+        }
+        return tagsArray;
+    })
 }
 
 function searchByTags(arrayOfTags) {
-    console.log(arrayOfTags)
     const query = `SELECT t2.* FROM
-                    (SELECT resources.resourceId FROM 
+                    (SELECT DISTINCT resources.resourceId FROM 
                     resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId 
                     LEFT JOIN tags ON tags.tagId=taggings.tagId 
                     WHERE tags.tagName IN (?)) t1
@@ -100,7 +99,6 @@ function searchByTags(arrayOfTags) {
                     ORDER BY t2.dateAdded DESC`
     const params = arrayOfTags
     return sendQuery(query, [params])
-<<<<<<< HEAD
     .then(function(results){
         //resourceTags field is sent back as comma seperated list ...so pass to array
         let resources = results;
@@ -112,16 +110,6 @@ function searchByTags(arrayOfTags) {
         }
         return resources
     })
-=======
-        .then(function (results) {
-            //resourceTags field is sent back as comma seperated list ...so pass to array
-            let resources = results;
-            for (i = 0; i < resources.length; i++) {
-                resources[i].resourceTags = resources[i].resourceTags.split(',')
-            }
-            return resources
-        })
->>>>>>> master
 }
 
 //3 steps to storing a resource
@@ -150,6 +138,18 @@ function deleteResource(resourceId) {
     return sendQuery(query, params);
 }
 
+function editResource(resourceId,data) {
+    const query = `UPDATE resources SET ? WHERE resourceId = ?`;
+    const params = [data, resourceId];
+    return sendQuery(query, params);
+}
+
+function removeTags(resourceId) {
+    const query = `DELETE FROM taggings WHERE resourceId = ?`;
+    const params = resourceId;
+    return sendQuery(query, params);  
+}
+
 module.exports = {
     getResources,
     addResource,
@@ -157,6 +157,8 @@ module.exports = {
     searchByTags,
     deleteResource,
     getResourceTagIds,
-    applyTagsToResource
-
+    applyTagsToResource,
+    getTags,
+    editResource,
+    removeTags
 };

@@ -39,7 +39,16 @@ resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
 LEFT JOIN tags ON tags.tagId=taggings.tagId 
 WHERE tags.tagName IN ("JavaScript")) t1
 LEFT JOIN
-(SELECT resources.*, GROUP_CONCAT(tags.tagName) AS resourceTags FROM
+(SELECT resources.*, GROUP_CONCAT(tags.tagName) AS rCREATE TABLE `learning_resources` (
+  `resourceId` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  PRIMARY KEY (`resourceId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+esourceTags FROM
 resources LEFT JOIN taggings on resources.resourceId=taggings.resourceId
 LEFT JOIN tags ON tags.tagId=taggings.tagId
 GROUP BY resources.resourceId) t2
