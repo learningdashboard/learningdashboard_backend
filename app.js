@@ -86,7 +86,7 @@ app.post('/resources', async function (request, response) {
       await dbService.applyTagsToResource(resourceId, thisTagId)
     }
 
-    response.json("Success!");
+    response.json(resourceId);
   } catch (error) {
     response.status(500);
     response.json(error);
