@@ -5,7 +5,8 @@
   "main": "dbservice.js",
   "scripts": {
     "start": ". ../learning_dashboard_backend_config/local_config.txt; nodemon bin/www.js",
-    "test": ". ../learning_dashboard_backend_config/test_config.txt; jest"
+    "test": ". ../learning_dashboard_backend_config/test_config.txt; jest",
+    "seed": ". ../learning_dashboard_backend_config/local_config.txt; node scripts/database_seed.js"
   },
   "repository": {
     "type": "git",
