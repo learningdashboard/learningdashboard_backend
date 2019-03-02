@@ -35,6 +35,10 @@ functions:
           method: post
           cors: true
       - http:
+          path: resources/{resourceId}
+          method: put
+          cors: true
+      - http:        
           path: tags
           method: get
           cors: true   

@@ -77,7 +77,7 @@ app.post('/resources', async function (request, response) {
     const resourceTags = request.body.resourceTags
 
   try {
-    const addBodyOfResource = await dbService.addResource(data)
+    const addBodyOfResource = await dbService.addResource(data);
     const resourceId = addBodyOfResource.insertId;
     const getTagIds = await dbService.getResourceTagIds(resourceTags);
 
@@ -86,7 +86,7 @@ app.post('/resources', async function (request, response) {
       await dbService.applyTagsToResource(resourceId, thisTagId)
     }
 
-    response.json("Success!");
+    response.json(resourceId);
   } catch (error) {
     response.status(500);
     response.json(error);
@@ -106,6 +106,36 @@ app.delete('/resources/:resourceId', function (request, response) {
       response.status(500);
       response.json(error);
     });
+
+})
+
+app.put('/resources/:resourceId', async function (request, response) {
+  const resourceId = request.params.resourceId;
+
+  const data = { 
+    title: request.body.title,
+    url: request.body.url,
+    description: request.body.description,
+    userName: request.body.userName,
+    }
+
+  const resourceTags = request.body.resourceTags
+
+    try {
+      await dbService.editResource(resourceId, data);
+      await dbService.removeTags(resourceId);
+      const getTagIds = await dbService.getResourceTagIds(resourceTags);
+  
+      for (let item of getTagIds) {
+        const thisTagId = item.tagId
+        await dbService.applyTagsToResource(resourceId, thisTagId);
+      }
+  
+      response.json(results);
+    } catch (error) {
+      response.status(500);
+      response.json(error);
+    };
 
 })
 

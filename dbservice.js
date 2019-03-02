@@ -138,6 +138,18 @@ function deleteResource(resourceId) {
     return sendQuery(query, params);
 }
 
+function editResource(resourceId,data) {
+    const query = `UPDATE resources SET ? WHERE resourceId = ?`;
+    const params = [data, resourceId];
+    return sendQuery(query, params);
+}
+
+function removeTags(resourceId) {
+    const query = `DELETE FROM taggings WHERE resourceId = ?`;
+    const params = resourceId;
+    return sendQuery(query, params);  
+}
+
 module.exports = {
     getResources,
     addResource,
@@ -146,6 +158,7 @@ module.exports = {
     deleteResource,
     getResourceTagIds,
     applyTagsToResource,
-    getTags
-
+    getTags,
+    editResource,
+    removeTags
 };
