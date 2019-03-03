@@ -116,7 +116,7 @@ app.put('/resources/:resourceId', async function (request, response) {
     title: request.body.title,
     url: request.body.url,
     description: request.body.description,
-    userName: request.body.userName,
+    userName: request.body.userName
     }
 
   const resourceTags = request.body.resourceTags
@@ -131,9 +131,11 @@ app.put('/resources/:resourceId', async function (request, response) {
         await dbService.applyTagsToResource(resourceId, thisTagId);
       }
   
-      response.json(results);
+      response.json({message: "success"});
     } catch (error) {
+      response.status(500);
       response.json(error);
+
     };
 
 })
