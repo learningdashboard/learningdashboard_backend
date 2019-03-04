@@ -163,7 +163,7 @@
 {
 "title":"GitHub Free users now get unlimited private repositories",
 "description":"Article on getting fress private repositories in github",
-"url":"https://guce.oath.com/collectConsent?brandType=nonEu&.done=https%3A%2F%2Ftechcrunch.com%2F2019%2F01%2F07%2Fgithub-free-users-now-get-unlimited-private-repositories%2F%3Fguccounter%3D1&sessionId=3_cc-session_e8643095-9ab4-4aa2-ab09-f3465a406957&lang=&inline=false",
+"url":"https://techcrunch.com/2019/01/07/github-free-users-now-get-unlimited-private-repositories/",
 "userName":"Nicola",
 "resourceTags":["Git"]
 },
@@ -203,16 +203,16 @@
 "resourceTags":["JavaScript"]
 },
 {
-"title":"Time to reflect – why does it matter in the workplace?",
+"title":"The Role of Reflection in Individual Learning",
 "description":"Personal reflection in the workplace",
-"url":"https://htmlcolorcodes.com",
+"url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478",
 "userName":"Nicola",
 "resourceTags":["Professional Development"]
 },
 {
 "title":"Colour Codes",
 "description":"A guide to Hex and RGB colour codes",
-"url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478",
+"url":"https://htmlcolorcodes.com",
 "userName":"Nicola",
 "resourceTags":["CSS", "HTML"]
 },
@@ -273,7 +273,7 @@
 "resourceTags":["Git"]
 },
 {
-"title":"ASemantic Versioning 2.0.0",
+"title":"Semantic Versioning 2.0.0",
 "description":"Article on Semantic Versioning",
 "url":"https://semver.org",
 "userName":"Nicola",
